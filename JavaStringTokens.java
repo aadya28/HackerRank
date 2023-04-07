@@ -5,10 +5,13 @@ public class JavaStringTokens {
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
             String str = sc.nextLine();
-            int len = str.length();
-            String[] arrOfStr = str.split("[@!? .',]", len);
+            int counter = 0;
+            String[] arrOfStr = str.split("[@!? .',]");
+            for (String a : arrOfStr)
+                if(a=="")
+                    counter++;
             int arrayLength = arrOfStr.length;
-            System.out.println(arrayLength);
+            System.out.println(arrayLength-counter);
             for (String a : arrOfStr)
                 if(a!="")
                     System.out.println(a);
