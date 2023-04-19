@@ -1,4 +1,4 @@
-import java.io.*;
+//Separating tokens in a string and printing the total number of them
 import java.util.*;
 
 public class JavaStringTokens {
