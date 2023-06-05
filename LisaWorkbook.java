@@ -1,5 +1,5 @@
-//First attempt at solving HackerRank Problem Lisa's WorkBook.
-//Solves 4/11 testcases.
+//Program to solve HackerRank Problem Lisa's WorkBook.
+//Solves 11/11 testcases.
 import java.util.Scanner;
 
 public class LisaWorkbook {
@@ -15,9 +15,9 @@ public class LisaWorkbook {
                     counter++;
                 }
                 pageNumber++;
-                firstProblemNumber += maxProblemsPerPage;
-                lastProblemNumber += maxProblemsPerPage;
+                firstProblemNumber = lastProblemNumber+1;
                 questionsLeft -= maxProblemsPerPage;
+                lastProblemNumber += Math.min(maxProblemsPerPage,questionsLeft);
             }while (questionsLeft > 0);
         }
         return counter;
