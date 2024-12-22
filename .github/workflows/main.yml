@@ -1,0 +1,29 @@
+name: Java CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin' # Use Temurin JDK
+        java-version: '17'      # Specify your JDK version
+
+    - name: Compile Java files
+      run: javac -d out src/**/*.java
+
+    - name: Run Application
+      run: java -cp out Main # Replace 'Main' with your main class name
