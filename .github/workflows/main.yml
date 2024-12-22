@@ -25,8 +25,4 @@ jobs:
     - name: Compile Java files
       run: |
         shopt -s globstar
-        ls -al
         javac -d out **/*.java
-
-    - name: Run Application
-      run: java -cp out Main # Replace 'Main' with your main class name
