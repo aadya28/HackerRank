@@ -21,12 +21,12 @@ jobs:
       with:
         distribution: 'temurin' # Use Temurin JDK
         java-version: '17'      # Specify your JDK version
-
-    - name: Show files
-      run: ls -al
-
+        
     - name: Compile Java files
-      run: javac -d out **/*.java
+      run: |
+        shopt -s globstar
+        ls -al
+        javac -d out **/*.java
 
     - name: Run Application
       run: java -cp out Main # Replace 'Main' with your main class name
