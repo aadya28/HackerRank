@@ -5,7 +5,7 @@ on:
     branches:
       - main
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
     types: [opened, synchronize, reopened]
 
 jobs:
@@ -21,9 +21,9 @@ jobs:
       with:
         distribution: 'temurin' # Use Temurin JDK
         java-version: '17'      # Specify your JDK version
-
+        
     - name: Compile Java files
-      run: javac -d out **/*.java
-
-    - name: Run Application
-      run: java -cp out Main # Replace 'Main' with your main class name
+      run: |
+        shopt -s globstar
+        javac -d out **/*.java
+        ls -al out/*
